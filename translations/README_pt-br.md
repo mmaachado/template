@@ -8,10 +8,10 @@
 </p>
 
 <p align="center">
-    <a href="#-features">Features</a>
-  • <a href="#-instalação">Instalação</a>
-  • <a href="#-Uso">Uso</a>
-  • <a href="#️-contributing">Contribuindo</a>
+    <a href="#-features">features</a>
+  • <a href="#-instalação">instalação</a>
+  • <a href="#-Uso">uso</a>
+  • <a href="#️-contributing">contribuindo</a>
 </p>
 
 **🌎 README disponível em outros idiomas:  [🇬🇧](../README.md)**
@@ -21,18 +21,18 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 <br/>
 
 ##
-- [🌟 Features](#-features)
-- [📲 Instalação](#-instalação)
-- [🐍 Uso](#-Uso)
-- [❤️ Contribuindo](#️-Contribuindo)
-- [👨🏻‍💻 Autor](#-Autor)
-- [👮🏻 Licença](#-Licença)
+- [🌟 features](#-features)
+- [📲 instalação](#-instalação)
+- [🐍 uso](#-Uso)
+- [❤️ contribuindo](#️-Contribuindo)
+- [👨🏻‍💻 autor](#-Autor)
+- [👮🏻 licença](#-Licença)
 
 
 <br/>
 
 
-## 🌟 Features
+## 🌟 features
 
 * Lorem Ipsum
 * Lorem Ipsum
@@ -45,33 +45,33 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 <br/>
 
 
-## 📲 Instalação
+## 📲 instalação
 
 ```cmd
 git clone https://github.com/mmaachado/template.git
 ```
->📣 **Clone o projeto**
+>📣 **clone o projeto**
 
 <br/>
 
 ```cmd
 python -m venv env
 ```
->📣 **Crie uma venv**
+>📣 **crie uma venv**
 
 <br/>
 
 ```cmd
 .\env\Scripts\Activate.ps1
 ```
->📣 **Ative sua venv**
+>📣 **ative sua venv**
 
 <br/>
 
 ```python
 pip install -r requirements.txt
 ```
->📣 **Instale as dependencias do projeto**
+>📣 **instale as dependencias do projeto**
 
 <br/>
 
@@ -79,26 +79,26 @@ pip install -r requirements.txt
 <br/>
 
 
-## 🐍 Uso
+## 🐍 uso
 
-Apenas **1** passo para começar a usar:
+apenas **1** passo para começar a usar:
 
-1️⃣ Run
+1️⃣ run
 ```python
 python -m main.py
 ```
 
-## ❤️ Contribuindo
-Este é um projeto open source, então sinta-se livre para contribuir. Como?
-- Abra uma [issue]().
-- Proponha seus ajustes, sugestões e abra uma pull request com as alterações.
-Veja os [contribuidores](#)
-Para mais informações, leia nosso [código de contribuição](#)
+## ❤️ contribuindo
+este é um projeto open source, então sinta-se livre para contribuir. como?
+- abra uma [issue]().
+- proponha seus ajustes, sugestões e abra uma pull request com as alterações.
+veja os [contribuidores](#)
+para mais informações, leia nosso [código de contribuição](#)
 
-## 👨🏻‍💻 Autor
+## 👨🏻‍💻 autor
 [Marcelo Machado](http://www.twitter.com/hayashilol1)
 
-## 👮🏻 Licença
+## 👮🏻 licença
 ```
 MIT License
 
