@@ -1,0 +1,88 @@
+name: "Bug report"
+description: Something is broken in the project
+title: "[bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please search open and closed issues before submitting — it may already be reported.
+
+        If you are not sure whether this is a bug, check the [issues](https://github.com/mmaachado/template/issues) instead.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+      description: What happened, and what did you expect to happen instead?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Application (web, CLI, etc.)
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: components
+    attributes:
+      label: Affected components
+      description: Leave empty if this is not about a specific component.
+    validations:
+      required: false
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: How to reproduce
+      description: Exact commands and, when it is a rendering problem, the template that triggers it.
+    validations:
+      required: true
+
+  - type: input
+    id: package-version
+    attributes:
+      label: package version
+      placeholder: "1.0.0"
+    validations:
+      required: true
+
+  - type: input
+    id: lib-version
+    attributes:
+      label: Library version
+      placeholder: "5.1.4"
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: Python version and OS
+      placeholder: "3.12.13, Windows 11"
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Output
+      description: Command output or traceback. Paste the text rather than a screenshot.
+      render: shell
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Before submitting
+      description: By submitting this issue, you agree to follow our [contributing guide](https://github.com/mmaachado/template/blob/master/.github/CONTRIBUTING.md).
+      options:
+        - label: I have searched the existing issues
+          required: true
