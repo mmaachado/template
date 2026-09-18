@@ -73,7 +73,10 @@ Describe the scope of your project. Complete specification at `.claude/SPEC.md`.
    (`.github/CONTRIBUTING.md` → Releases).
 9. **Document** — record the implementation/changes as agreed during
    planning (`CHANGELOG.md` under `## Unreleased`, plus anything `SPEC.md`
-   assigned to documentation).
+   assigned to documentation). Run `self-improving-agent`
+   (`/si:memory-review` and, if it flags a candidate, `/si:promote`) so
+   what was learned in the delivery graduates into `CLAUDE.md`/
+   `.claude/rules/` instead of staying stuck in auto-memory.
 10. **Next delivery** — back to step 2 for the next scope.
 
 ## Automation (.claude)
