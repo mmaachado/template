@@ -2,7 +2,7 @@
 
 ## Project
 
-Describe the scope of your project. Complete specification at `.claude/specs/` (start by `.claude/specs/README.md`).
+Describe the scope of your project. Complete specification at `.claude/SPEC.md`.
 
 ## Stack (adapt at your needs)
 
@@ -11,7 +11,7 @@ Describe the scope of your project. Complete specification at `.claude/specs/` (
 
 ## Architecture (adapt at your needs)
 
-- Layered (n-tier): presentation (views) → application (services) → domain (models) → infrastructure (integrations). Details in `.claude/specs/`
+- Layered (n-tier): presentation (views) → application (services) → domain (models) → infrastructure (integrations). Details in `.claude/SPEC.md`
 - Directories: `apps/`, `integrations/`. Views do not call API's or contain business logic.
 
 ## UI (adapt at your needs)
@@ -40,9 +40,49 @@ Describe the scope of your project. Complete specification at `.claude/specs/` (
 
 - Mandatory, clear informational logs in the terminal and log file. Never log secrets; never use `print`.
 
+## Workflow (project lifecycle)
+
+1. **Setup** — clone/create the repo (`.github/CONTRIBUTING.md` → Getting started).
+2. **Plan** — open Claude Code in Plan Mode, `Opus`. Developer describes the
+   full scope of the project/feature to build.
+3. **Architect & close the spec** — distill the requirements fully and close
+   `.claude/SPEC.md`: scope/deliverable, architecture decisions, lint/format
+   standards, and the split of what's the agent's job vs. the developer's
+   job. Prefer `improve-codebase-architecture` and `verification-planning`
+   for this. `caveman` is for the conversational replies to the developer
+   only — never for `SPEC.md` itself, which must stay maximally detailed: a
+   developer reading it later has to understand why, how, and for what
+   purpose each decision exists.
+4. **Branch** — create/checkout the working branch from `master`.
+5. **Build** — call `development-agent` (`Sonnet`) → `test-agent`
+   (`Sonnet`) → `code-reviewer` (`Opus`), in that order. Use `caveman` +
+   `ponytail` for terse, lazy-first execution, and `karpathy-coder` to keep
+   the diff surgical. Any decision an agent can't make from
+   `SPEC.md`/`CLAUDE.md` alone stops it — it escalates to the
+   session-starting agent to decide with the developer.
+6. **Security gate** — development done, run `security-audit`. Findings
+   route back to the session-starting agent to orchestrate the action plan
+   with the developer — same escalation rule as step 5.
+7. **Commit** — the agent commits per feature implemented in `SPEC.md`,
+   message per `.github/CONTRIBUTING.md`'s convention
+   (`category(scope): message`, e.g.
+   `feat(components): add the switch component`), signed with
+   `Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>`. PR and merge
+   are always the developer's.
+8. **Release** — after merge, bump the version tag if applicable
+   (`.github/CONTRIBUTING.md` → Releases).
+9. **Document** — record the implementation/changes as agreed during
+   planning (`CHANGELOG.md` under `## Unreleased`, plus anything `SPEC.md`
+   assigned to documentation).
+10. **Next delivery** — back to step 2 for the next scope.
+
 ## Automation (.claude)
 
-- Agents: `code-reviewer` (before commit), `test-agent` (run/fix tests).
+- Agents: `development-agent` (code from `SPEC.md`), `test-agent` (run/fix
+  tests), `code-reviewer` (final review before commit).
+- Skills used along the workflow above: `improve-codebase-architecture` +
+  `verification-planning` (planning), `caveman` (chat replies only) +
+  `ponytail` + `karpathy-coder` (build), `security-audit` (pre-commit gate).
 - Reusable skills stay at `.claude/skills/`.
 
 ## Versioning
@@ -50,4 +90,4 @@ Describe the scope of your project. Complete specification at `.claude/specs/` (
 - SemVer (`MAJOR.MINOR.PATCH`), declared once in `[project].version` within
   `pyproject.toml`.
 - Every release records changes under `## [Unreleased]` in `CHANGELOG.md` (Keep a Changelog).
-  Version bumps and `vX.Y.Z` tags are handled by the developer — process outlined in `CONTRIBUTING.md`.
+  Version bumps and `vX.Y.Z` tags are handled by the developer — process outlined in `.github/CONTRIBUTING.md`.

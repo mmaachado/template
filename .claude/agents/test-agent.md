@@ -14,8 +14,9 @@ the tests.
 
 ## Workflow
 
-1. Run `task test` (equivalent to `pytest -s -x --cov=src -vv`, with
-   `task lint` in `pre_test`). If `task` is unavailable, use `uv run pytest -s -x`
+1. Run, in order: `task lint`, `task format`, `task test` (equivalent to
+   `pytest -s -x --cov=src -vv`). If `task` is unavailable, use
+   `uv run ruff check .`, `uv run black .`, `uv run pytest -s -x`.
 2. If everything passes: report the summary (count passed, coverage) and stop.
 3. If it fails:
 
@@ -30,6 +31,13 @@ the tests.
 - Do not introduce new dependencies to "simplify" a test.
 - Do not alter production code just to make a test pass without understanding
   the bug. If the test itself is incorrect, state that explicitly.
+
+## Blockages
+
+If the fix isn't minimal/mechanical — it touches architecture, business
+rules, or anything not already settled in `.claude/SPEC.md` — **stop and
+report the blockage** instead of deciding on your own. Escalate to the
+session-starting agent to decide with the developer.
 
 ## Output
 

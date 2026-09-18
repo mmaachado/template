@@ -1,6 +1,6 @@
 ---
 name: improve-codebase-architecture
-description: Find deepening opportunities in a codebase, informed by the domain language and the recorded decisions in `.claude/specs/`. Use when the user wants to improve architecture, find refactoring opportunities, consolidate tightly-coupled modules, or make a codebase more testable and AI-navigable.
+description: Find deepening opportunities in a codebase, informed by the domain language and the recorded decisions in `.claude/SPEC.md`. Use when the user wants to improve architecture, find refactoring opportunities, consolidate tightly-coupled modules, or make a codebase more testable and AI-navigable.
 ---
 
 # Improve Codebase Architecture
@@ -30,24 +30,23 @@ This skill is _informed_ by the project's domain model. The domain language give
 
 ## Where this project keeps them
 
-This repository has no `CONTEXT.md` and no `docs/adr/`; both live in `.claude/specs/`, and that is
-deliberate — traceability belongs to the specs, so a parallel copy would only drift.
+This repository has no `CONTEXT.md` and no `docs/adr/`; both live in `.claude/SPEC.md`, and that is
+deliberate — traceability belongs to the spec, so a parallel copy would only drift.
 
-| What the skill needs | Where it is here                                                            |
-| -------------------- | --------------------------------------------------------------------------- |
-| Domain glossary      | `.claude/specs/000-overview.md` §5                                          |
-| Project-wide ADRs    | `.claude/specs/000-overview.md` §6 (`ADR-1`…`ADR-7`)                        |
-| Scoped ADRs          | Inside the spec of the area, numbered by it (e.g. `ADR-017-3` in the `017`) |
-| Known open questions | The "Em aberto" section of the relevant spec                                |
+| What the skill needs | Where it is here                        |
+| --------------------- | --------------------------------------- |
+| Domain glossary       | `.claude/SPEC.md` — `## Glossary`       |
+| ADRs                  | `.claude/SPEC.md` — `## ADRs`           |
+| Known open questions  | `.claude/SPEC.md` — `## Open questions` |
 
-Read `.claude/specs/README.md` first: it indexes every spec and flags the superseded ones.
+Read `.claude/SPEC.md` first — it's the single source of scope, architecture, and decisions for
+the current feature.
 
 ## Process
 
 ### 1. Explore
 
-Read the glossary (`000-overview.md` §5) and the ADRs of the area you're touching first — both
-the project-wide table and the ones scoped to that spec.
+Read the glossary and the ADRs in `.claude/SPEC.md` first.
 
 Then use the Agent tool with `subagent_type=Explore` to walk the codebase. Don't follow rigid heuristics — explore organically and note where you experience friction:
 
@@ -81,13 +80,12 @@ Once the user picks a candidate, drop into a grilling conversation. Walk the des
 Side effects happen inline as decisions crystallize:
 
 - **Naming a deepened module after a concept not in the glossary?** Add the term to
-  `.claude/specs/000-overview.md` §5, in the same one-line style as its neighbours.
+  `.claude/SPEC.md` `## Glossary`, in the same one-line style as its neighbours.
 - **Sharpening a fuzzy term during the conversation?** Update the glossary entry right there.
 - **User rejects the candidate with a load-bearing reason?** Offer an ADR, framed as: _"Want me to
   record this as an ADR so future architecture reviews don't re-suggest it?"_ Only offer when the
   reason would actually be needed by a future explorer to avoid re-suggesting the same thing —
-  skip ephemeral reasons ("not worth it right now") and self-evident ones. A decision that spans
-  the project becomes the next row of `000-overview.md` §6; one scoped to a module goes in that
-  module's spec, numbered by it (`ADR-017-4`). Match the columns already there: decision,
-  rationale, rejected alternative.
+  skip ephemeral reasons ("not worth it right now") and self-evident ones. Append it as the next
+  row of `.claude/SPEC.md` `## ADRs`, matching the columns already there: decision, rationale,
+  rejected alternative.
 - **Want to explore alternative interfaces for the deepened module?** See [INTERFACE-DESIGN.md](INTERFACE-DESIGN.md).
