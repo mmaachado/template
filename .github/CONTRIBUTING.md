@@ -14,7 +14,7 @@ Provide a resume about your project.
 
 ```
 .
-├── .claude/             Claude Code guidelines
+├── .claude/             Claude Code guidelines & skills
 ├── .github/             GitHub CI/CD configurations
 │   ├── ISSUE_TEMPLATE/
 │   ├── workflows/

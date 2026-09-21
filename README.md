@@ -16,4 +16,3 @@ Python developers that use Claude Code.
 
 The template covers pratically my personal setup and the tools I use. Although you can adapt it to your own ecosystem, the moment you have to configure it, the template's essence is lost.
 
-## Architecture
